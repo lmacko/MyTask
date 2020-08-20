@@ -21,7 +21,7 @@ public class NumberAsArrayTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         p.print();
-        assertEquals("12345678901234567890",outContent.toString());
+        assertEquals("12345678901234567890", outContent.toString());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class NumberAsArrayTest {
         System.setOut(new PrintStream(AsArrayProduct));
         p.multiply(q).print();
 
-        assertEquals(BigIntProduct.toString(),AsArrayProduct.toString());
+        assertEquals(BigIntProduct.toString(), AsArrayProduct.toString());
     }
 
 }
