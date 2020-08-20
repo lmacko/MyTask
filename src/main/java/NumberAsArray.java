@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class NumberAsArray {
-    int[] numberAsArray;            //numbers are stored in reverse order for easier multiplication
+    private int[] numberAsArray;            //numbers are stored in reverse order for easier multiplication
 
     public NumberAsArray(String numberAsString){                            //constructor using String - for input number
         String[] stringArray = numberAsString.split("\\B");
@@ -16,6 +16,10 @@ public class NumberAsArray {
         this.numberAsArray = removeZeroes(numberAsArray);
     }
 
+    public int[] getNumberAsArray() {
+        return numberAsArray;
+    }
+
     private int[] removeZeroes(int[] array) {                               //removes zeroes at the beginning of a number
         int newSize = -1;                                                   //actually removes zeroes at the end of reversed number
         for (int i = array.length -1 ; i >= 0 ; i--) {
@@ -27,9 +31,11 @@ public class NumberAsArray {
 
         if (newSize == -1) return new int[1];
 
-        int[] newArray = new int [newSize];
-        System.arraycopy(array, 0, newArray, 0, newSize);
-        return newArray;
+        if(newSize < array.length){
+            int[] newArray = new int [newSize];
+            System.arraycopy(array, 0, newArray, 0, newSize);
+            return newArray;
+        } else return array;              //if there are no zeroes at the beginning of number we do not process it
     }
 
     public NumberAsArray multiply(NumberAsArray number){    //multiply method
